@@ -1,0 +1,62 @@
+<!Doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Parallaxo Demo</title>
+
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .parallaxo {
+            width: 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            -ms-background-position-x: 50%;
+            background-position-x: 50%;
+        }
+
+        #sec1 {
+            background-image: url('http://placekitten.com/2000/900');
+            height: 500px;
+        }
+        #sec2 {
+            background-image: url('http://placekitten.com/2000/800');
+            height: 400px;
+        }
+        #sec3 {
+            background-image: url('http://placekitten.com/2000/700');
+            height: 300px;
+        }
+        #sec4 {
+            background-image: url('http://placekitten.com/2000/1000');
+            height: 600px;
+        }
+        #sec5 {
+            background-image: url('http://placekitten.com/2000/1100');
+            height: 600px;
+        }
+        #sec6 {
+            background-image: url('http://placekitten.com/2000/600');
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+
+<section id="sec1" data-speed="5" class="parallaxo"></section>
+<section id="sec2" data-speed="2" class="parallaxo"></section>
+<section id="sec3" data-speed="1" class="parallaxo"></section>
+<section id="sec4" data-speed="6" class="parallaxo"></section>
+<section id="sec5" class="parallaxo"></section>
+<section id="sec6" data-speed="4" class="parallaxo"></section>
+
+
+<script type="text/javascript" src="parallaxo.js"></script>
+<script type="text/javascript">
+    new Parallaxo();
+</script>
+
+</body>
+</html>
