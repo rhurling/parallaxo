@@ -37,4 +37,4 @@ window.parallaxo = () ->
     if cache.length
       window.addEventListener 'scroll', request_scroll, false
 
-    onload()
+    onload() if typeof onload == 'function'
