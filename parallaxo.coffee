@@ -1,20 +1,32 @@
-window.parallaxo = () ->
+window.parallaxo = (options = {}) ->
+  options.selector ?= '.parallaxo'
+  options.minWidth ?= 768
+  options.preRenderPixel ?= 50
+  options.defaultSpeed ?= 10
+
+  if window.innerWidth < options.minWidth
+    return false
+
   cache = []
   windowHeight = window.innerHeight
 
   scroll = () ->
     scrollTop = window.scrollY
     cache.forEach (item) ->
-      if item.offset <= scrollTop + windowHeight + 50 and scrollTop <= item.offset + item.height + 50
-        item.element.style.webkitTransform = 'translate3d(0, -' + ( scrollTop / item.speed ) + 'px, 0)'
-        item.element.style.transform = 'translate3d(0, -' + ( scrollTop / item.speed ) + 'px, 0)'
+      if item.pos_y <= scrollTop + windowHeight + options.preRenderPixel and scrollTop <= item.pos_y + item.height + options.preRenderPixel
+        value = scrollTop / item.speed + item.img_offset
+        if value < 0
+          value = 0
+
+        item.element.style.webkitTransform = 'translate3d(0, -' + value + 'px, 0)'
+        item.element.style.transform = 'translate3d(0, -' + value + 'px, 0)'
 
   request_scroll = () ->
     window.requestAnimationFrame scroll
 
   onload = window.onload
   window.onload = () ->
-    [].forEach.call document.querySelectorAll('.parallaxo'), (el) ->
+    [].forEach.call document.querySelectorAll(options.selector), (el) ->
       img_url = window.getComputedStyle(el, false).backgroundImage
       img_url = img_url.slice(0, img_url.length - 1).substr(4).replace(/["']/g, '')
       el.style.backgroundImage = 'none'
@@ -24,14 +36,15 @@ window.parallaxo = () ->
       img.className = 'parallaxo_img'
       el.insertBefore img, el.firstChild
 
-      s = el.getAttribute('data-speed')
-      s = 10 if !s
+      s = el.dataset['speed'] ? options.defaultSpeed
+      o = el.dataset['offset'] ? 0
 
       cache.push {
         element: img
         height: el.offsetHeight
-        speed: parseInt(s) - 1
-        offset: el.offsetTop
+        pos_y: el.offsetTop
+        speed: parseFloat(s) - 1
+        img_offset: parseFloat(o)
       }
 
     if cache.length
