@@ -62,22 +62,33 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/parallaxo.coffee",
 		"minifyOutput": 1,
-		"outputAbbreviatedPath": "\/parallaxo.js",
+		"outputAbbreviatedPath": "\/parallaxo.min.js",
 		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
+		"outputPathIsSetByUser": 1,
 		"outputStyle": 0,
 		"syntaxCheckerStyle": 1
 		},
-	"\/parallaxo.js": {
+	"\/parallaxo.min.js": {
 		"fileType": 64,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/parallaxo.js",
-		"outputAbbreviatedPath": "\/min\/parallaxo-ck.js",
+		"inputAbbreviatedPath": "\/parallaxo.min.js",
+		"outputAbbreviatedPath": "\/min\/parallaxo.min-ck.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
+		},
+	"\/rAF.polyfill.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
+		"inputAbbreviatedPath": "\/rAF.polyfill.js",
+		"outputAbbreviatedPath": "\/min\/rAF.polyfill-ck.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"syntaxCheckerStyle": 0
 		}
 	},
 "hooks": [
